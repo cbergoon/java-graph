@@ -31,7 +31,7 @@ public class AdjacencyListGraph<V, E> extends Graph<V, E> {
 	 * Get all vertices in the graph. 
 	 * @return Set of all vertices in the graph. 
 	 */
-	public Set<Integer> getVertices(){
+	public Set<Integer> getVerticesImplementation(){
 		return adjList.keySet();
 	}
 	
@@ -39,7 +39,7 @@ public class AdjacencyListGraph<V, E> extends Graph<V, E> {
 	 * Get all edges in the graph. 
 	 * @return Set of all edges in the graph. 
 	 */
-	public Set<Pair<Integer, Integer>> getEdges(){
+	public Set<Pair<Integer, Integer>> getEdgesImplementation(){
 		HashSet<Pair<Integer, Integer>> edges = new HashSet<Pair<Integer, Integer>>(); 
 		for(Integer i : getVertices())
 			for(Integer j : adjList.get(i))

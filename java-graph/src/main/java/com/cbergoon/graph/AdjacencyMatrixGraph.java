@@ -1,10 +1,19 @@
 package com.cbergoon.graph;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Set;
 
 import com.cbergoon.exceptions.InvalidVertexIndexException;
+import com.cbergoon.utility.Pair;
 
-public class AdjacencyMatrixGraph extends Graph {
+/**
+ * Adjacency matrix graph implementation. 
+ * @author cbergoon
+ * @param <T> The type that a vertex represents.
+ * @param <V> The type that an edge represents.
+ */
+public class AdjacencyMatrixGraph<V, E> extends Graph<V, E> {
 	
 	/**
 	 * Adjacency matrix data structure.
@@ -53,6 +62,18 @@ public class AdjacencyMatrixGraph extends Graph {
 	}
 	
 	@Override
+	public Set<Integer> getVerticesImplementation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<Pair<Integer, Integer>> getEdgesImplementation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
 	public void addVertexImplementation() {
 		// TODO Auto-generated method stub
 
@@ -65,19 +86,19 @@ public class AdjacencyMatrixGraph extends Graph {
 	}
 
 	@Override
-	public HashSet getNeighbors(int v) throws InvalidVertexIndexException {
+	public HashSet<Integer> getNeighbors(int v) throws InvalidVertexIndexException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public HashSet getInNeighbors(int v) throws InvalidVertexIndexException {
+	public HashSet<Integer> getInNeighbors(int v) throws InvalidVertexIndexException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public HashSet getSecondDegree(int v) throws InvalidVertexIndexException {
+	public HashSet<Integer> getSecondDegree(int v) throws InvalidVertexIndexException {
 		// TODO Auto-generated method stub
 		return null;
 	}

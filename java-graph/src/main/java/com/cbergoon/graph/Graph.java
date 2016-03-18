@@ -3,6 +3,7 @@ package com.cbergoon.graph;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import com.cbergoon.exceptions.InvalidVertexIndexException;
 import com.cbergoon.exceptions.MaximumSizeReachedException;
@@ -73,6 +74,22 @@ public abstract class Graph<V, E> {
 	 */
 	public int getNumEdges(){
 		return numEdges;
+	}
+	
+	/**
+	 * Get all the vertices in the graph.
+	 * @return The set of all  verticy indexes.
+	 */
+	public Set<Integer> getVertices(){
+		return getVerticesImplementation();
+	}
+	
+	/**
+	 * Get all edges in the edges in the graph. 
+	 * @return The set of all edges in the graph. 
+	 */
+	public Set<Pair<Integer, Integer>> getEdges(){
+		return getEdgesImplementation();
 	}
 	
 	/**
@@ -160,6 +177,20 @@ public abstract class Graph<V, E> {
 			edgeContent.put(new Pair<Integer, Integer>(v1, v2), content);
 		addEdgeImplementation(v1, v2);
 	}
+	
+	/**
+	 * Implementation specific get vertices function. Gets the vertices that
+	 * are in the graph. 
+	 * @return Set of all vertices in the graph. 
+	 */
+	public abstract Set<Integer> getVerticesImplementation();
+	
+	/**
+	 * Implementation specific get edges function. Gets the edges that are
+	 * in the graph. 
+	 * @return Set of all edges in the graph.
+	 */
+	public abstract Set<Pair<Integer, Integer>> getEdgesImplementation();
 	
 	/**
 	 * Implementation specific add vertex function. Adds the vertex to
