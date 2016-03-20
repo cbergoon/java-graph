@@ -1,26 +1,39 @@
 package com.cbergoon.algorithms;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Queue;
 
+import com.cbergoon.graph.Graph;
 import com.cbergoon.graph.model.VertexBase;
 
 public abstract class GraphSearch {
 	
-	private Queue<VertexBase> queue;
+	protected ArrayList<Integer> visited;
+	protected Queue<VertexBase> queue;
 
-	private VertexBase start;
-	private VertexBase target;
+	protected VertexBase start;
+	protected VertexBase target;
 	
-	public GraphSearch(){
-		
+	//TODO Add template parameters.
+	protected Graph graph;
+	
+	public GraphSearch(Graph g){
+		visited = new ArrayList<Integer>();
+		queue = new LinkedList<VertexBase>();
+		this.graph = g;
 	}
 	
-	public GraphSearch(VertexBase target){
-		
+	public GraphSearch(Graph g, VertexBase target){
+		visited = new ArrayList<Integer>();
+		queue = new LinkedList<VertexBase>();
+		this.graph = g;
 	}
 	
-	public GraphSearch(VertexBase start, VertexBase target){
-		
+	public GraphSearch(Graph g, VertexBase start, VertexBase target){
+		visited = new ArrayList<Integer>();
+		queue = new LinkedList<VertexBase>();
+		this.graph = g;
 	}
 	
 	public void search(){
@@ -43,6 +56,22 @@ public abstract class GraphSearch {
 
 	public void setTarget(VertexBase target) {
 		this.target = target;
+	}
+
+	public ArrayList<Integer> getVisited() {
+		return visited;
+	}
+
+	public void setVisited(ArrayList<Integer> visited) {
+		this.visited = visited;
+	}
+
+	public Queue<VertexBase> getQueue() {
+		return queue;
+	}
+
+	public void setQueue(Queue<VertexBase> queue) {
+		this.queue = queue;
 	} 
 	
 }
