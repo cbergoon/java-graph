@@ -1,25 +1,26 @@
 package com.cbergoon.algorithms;
 
 import com.cbergoon.graph.Graph;
+import com.cbergoon.graph.model.EdgeBase;
 import com.cbergoon.graph.model.VertexBase;
 
-public class DFS extends GraphSearch {
+public class DFS<V extends VertexBase, E extends EdgeBase> extends GraphSearch<V, E> {
 
-	public DFS(Graph g) {
+	public DFS(Graph<V, E> g) {
 		super(g);
 	}
 	
-	public DFS(Graph g, VertexBase target){
+	public DFS(Graph<V, E> g, V target){
 		super(g, target);
 	}
 	
-	public DFS(Graph g, VertexBase start, VertexBase target){
+	public DFS(Graph<V, E> g, V start, V target){
 		super(g, start, target);
 	}
 
 	@Override
-	public void searchImplementation() {
-		
+	public V searchImplementation() {
+		return null;
 	}
 	
 }

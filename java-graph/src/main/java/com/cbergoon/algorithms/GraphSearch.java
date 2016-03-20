@@ -1,77 +1,132 @@
 package com.cbergoon.algorithms;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 
 import com.cbergoon.graph.Graph;
+import com.cbergoon.graph.model.EdgeBase;
 import com.cbergoon.graph.model.VertexBase;
 
-public abstract class GraphSearch {
+/**
+ * Base class for all searches on the graph class. 
+ * @author cbergoon
+ */
+public abstract class GraphSearch<V extends VertexBase, E extends EdgeBase> {
 	
-	protected ArrayList<Integer> visited;
-	protected Queue<VertexBase> queue;
+	/**
+	 * List of nodes visited while searching. 
+	 */
+	protected ArrayList<V> visited;
 
-	protected VertexBase start;
-	protected VertexBase target;
+	/**
+	 * (Optional) Start (entry) point for the graph search.
+	 * In case the starting point is not present the root is used.
+	 */
+	protected V start;
 	
-	//TODO Add template parameters.
-	protected Graph graph;
+	/**
+	 * (Optional) Target (terminal) point for the graph search. 
+	 * In case the target is not present it is assumed the search
+	 * will be used to determine connected nodes and the visited
+	 * property can be used to determine all reachable vertices.
+	 */
+	protected V target;
 	
-	public GraphSearch(Graph g){
-		visited = new ArrayList<Integer>();
-		queue = new LinkedList<VertexBase>();
+	/**
+	 * Reference to the graph to search. 
+	 * TODO Add template parameters. 
+	 */
+	protected Graph<V, E> graph;
+	
+	/**
+	 * Default constructor for graph search class. 
+	 * @param g Graph to search on.
+	 */
+	public GraphSearch(Graph<V, E> g){
+		visited = new ArrayList<V>();
 		this.graph = g;
 	}
 	
-	public GraphSearch(Graph g, VertexBase target){
-		visited = new ArrayList<Integer>();
-		queue = new LinkedList<VertexBase>();
+	/**
+	 * Constructor with target for the graph search class.
+	 * @param g Graph to search on.
+	 * @param target Target of search.
+	 */
+	public GraphSearch(Graph<V, E> g, V target){
+		visited = new ArrayList<V>();
 		this.graph = g;
 	}
 	
-	public GraphSearch(Graph g, VertexBase start, VertexBase target){
-		visited = new ArrayList<Integer>();
-		queue = new LinkedList<VertexBase>();
+	/**
+	 * Constructor with target and start for graph search class. 
+	 * @param g Graph to search on.
+	 * @param start Start point of search. 
+	 * @param target Target of search.
+	 */
+	public GraphSearch(Graph<V, E> g, V start, V target){
+		visited = new ArrayList<V>();
 		this.graph = g;
 	}
 	
-	public void search(){
-		searchImplementation();
+	/**
+	 * Wrapper of specific search implementation. 
+	 * @return VertexBase that represents the found vertex. Null if not found. 
+	 */
+	public V search(){
+		return searchImplementation();
 	}
 
-	public abstract void searchImplementation();
+	/**
+	 * Implementation specific version of the search.
+	 * @return VertexBase that represents the found vertex. Null if not found. 
+	 */
+	public abstract V searchImplementation();
 
-	public VertexBase getStart() {
+	/**
+	 * Get the specified start vertex.
+	 * @return VertexBase representing the start vertex.
+	 */
+	public V getStart() {
 		return start;
 	}
 
-	public void setStart(VertexBase start) {
+	/**
+	 * Set the start vertex. 
+	 * @param start The value of the start vertex. 
+	 */
+	public void setStart(V start) {
 		this.start = start;
 	}
 
+	/**
+	 * Get the specified target vertex. 
+	 * @return VertexBase of the target vertex.
+	 */
 	public VertexBase getTarget() {
 		return target;
 	}
 
-	public void setTarget(VertexBase target) {
+	/**
+	 * Set the target vertex. 
+	 * @param target The value of the target vertex.
+	 */
+	public void setTarget(V target) {
 		this.target = target;
 	}
 
-	public ArrayList<Integer> getVisited() {
+	/**
+	 * Get visited node list. 
+	 * @return List of visited nodes. 
+	 */
+	public ArrayList<V> getVisited() {
 		return visited;
 	}
 
-	public void setVisited(ArrayList<Integer> visited) {
+	/**
+	 * Set the visited node list.
+	 * @param visited List of visited nodes. 
+	 */
+	public void setVisited(ArrayList<V> visited) {
 		this.visited = visited;
 	}
-
-	public Queue<VertexBase> getQueue() {
-		return queue;
-	}
-
-	public void setQueue(Queue<VertexBase> queue) {
-		this.queue = queue;
-	} 
 	
 }
