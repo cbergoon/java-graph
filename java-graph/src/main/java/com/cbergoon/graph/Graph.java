@@ -7,6 +7,8 @@ import java.util.Set;
 
 import com.cbergoon.exceptions.InvalidVertexIndexException;
 import com.cbergoon.exceptions.MaximumSizeReachedException;
+import com.cbergoon.graph.model.EdgeBase;
+import com.cbergoon.graph.model.VertexBase;
 import com.cbergoon.utility.Pair;
 
 /**
@@ -15,7 +17,7 @@ import com.cbergoon.utility.Pair;
  * @param <V> Class that a vertex will represent
  * @param <E> Class that an edge will represent
  */
-public abstract class Graph<V, E> {
+public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 
 	/**
 	 * Represents the number of vertices in the graph.
@@ -78,7 +80,7 @@ public abstract class Graph<V, E> {
 	
 	/**
 	 * Get all the vertices in the graph.
-	 * @return The set of all  verticy indexes.
+	 * @return The set of all vertex indexes.
 	 */
 	public Set<Integer> getVertices(){
 		return getVerticesImplementation();
@@ -340,7 +342,7 @@ public abstract class Graph<V, E> {
 	 * @return The string representation of the object. 
 	 */
 	public String toString(){
-		return "";
+		return getClass().getName() + "@" + Integer.toHexString(hashCode());
 	}
 	
 }

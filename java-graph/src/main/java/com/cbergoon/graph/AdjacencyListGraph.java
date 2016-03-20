@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.cbergoon.exceptions.InvalidVertexIndexException;
+import com.cbergoon.graph.model.EdgeBase;
+import com.cbergoon.graph.model.VertexBase;
 import com.cbergoon.utility.Pair;
 
 /**
@@ -12,7 +14,7 @@ import com.cbergoon.utility.Pair;
  * @param <T> The type that a vertex represents.
  * @param <V> The type that an edge represents.
  */
-public class AdjacencyListGraph<V, E> extends Graph<V, E> {
+public class AdjacencyListGraph<V extends VertexBase, E extends EdgeBase> extends Graph<V, E> {
 
 	/**
 	 * Graph adjacency list representation.

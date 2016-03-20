@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.cbergoon.exceptions.InvalidVertexIndexException;
+import com.cbergoon.graph.model.EdgeBase;
+import com.cbergoon.graph.model.VertexBase;
 import com.cbergoon.utility.Pair;
 
 /**
@@ -13,7 +15,7 @@ import com.cbergoon.utility.Pair;
  * @param <T> The type that a vertex represents.
  * @param <V> The type that an edge represents.
  */
-public class AdjacencyMatrixGraph<V, E> extends Graph<V, E> {
+public class AdjacencyMatrixGraph<V extends VertexBase, E extends EdgeBase> extends Graph<V, E> {
 	
 	/**
 	 * Adjacency matrix data structure.
@@ -63,8 +65,11 @@ public class AdjacencyMatrixGraph<V, E> extends Graph<V, E> {
 	
 	@Override
 	public Set<Integer> getVerticesImplementation() {
-		// TODO Auto-generated method stub
-		return null;
+		HashSet<Integer> vertices = new HashSet<Integer>();
+		for(int i = 0; i < adjMatrix.length; i++){
+			
+		}
+		return vertices;
 	}
 
 	@Override
