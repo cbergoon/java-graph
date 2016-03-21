@@ -1,4 +1,4 @@
-package com.cbergoon.algorithms;
+package com.cbergoon.algorithm;
 
 import com.cbergoon.graph.Graph;
 import com.cbergoon.graph.model.EdgeBase;

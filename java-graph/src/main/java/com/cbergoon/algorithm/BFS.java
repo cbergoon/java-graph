@@ -1,11 +1,11 @@
-package com.cbergoon.algorithms;
+package com.cbergoon.algorithm;
 
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import com.cbergoon.exceptions.ImproperGraphBuildException;
-import com.cbergoon.exceptions.InvalidVertexIndexException;
+import com.cbergoon.exception.ImproperGraphBuildException;
+import com.cbergoon.exception.InvalidVertexIndexException;
 import com.cbergoon.graph.Graph;
 import com.cbergoon.graph.model.EdgeBase;
 import com.cbergoon.graph.model.VertexBase;

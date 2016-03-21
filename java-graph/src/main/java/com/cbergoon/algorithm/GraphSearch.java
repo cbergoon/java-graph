@@ -1,8 +1,8 @@
-package com.cbergoon.algorithms;
+package com.cbergoon.algorithm;
 
 import java.util.ArrayList;
 
-import com.cbergoon.exceptions.ImproperGraphBuildException;
+import com.cbergoon.exception.ImproperGraphBuildException;
 import com.cbergoon.graph.Graph;
 import com.cbergoon.graph.model.EdgeBase;
 import com.cbergoon.graph.model.VertexBase;

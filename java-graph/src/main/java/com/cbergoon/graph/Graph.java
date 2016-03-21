@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import com.cbergoon.exceptions.InvalidVertexIndexException;
-import com.cbergoon.exceptions.MaximumSizeReachedException;
+import com.cbergoon.exception.InvalidVertexIndexException;
+import com.cbergoon.exception.MaximumSizeReachedException;
 import com.cbergoon.graph.model.EdgeBase;
 import com.cbergoon.graph.model.VertexBase;
 import com.cbergoon.utility.Pair;
@@ -124,7 +124,8 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 	
 	/**
 	 * Adds a vertex to the graph. Calls the implementation specific version
-	 * of the add vertex function. Adds the content to the vertex.
+	 * of the add vertex function. Adds the content to the vertex. Overwriting 
+	 * the index in the decorator to ensure valid. 
 	 * @param content The content the vertex represents. 
 	 * @return The index representing the new vertex.
 	 * @throws MaximumSizeReachedException
@@ -137,6 +138,7 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 		if(label != null)
 			vertexLabel.put(numVertices - 1, label);
 		if(content != null)
+			content.setIndex(numVertices - 1);
 			vertexContent.put((numVertices - 1), content);
 		return numVertices - 1;
 	}
@@ -167,7 +169,8 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 	
 	/**
 	 * Adds an edge to the graph. Calls the implementation specific version 
-	 * of the add edge function. 
+	 * of the add edge function. Overwriting the connection in the decorator 
+	 * to ensure valid. 
 	 * @param v1 Vertex from which the edge is originating. 
 	 * @param v2 Vertex from which the edge is terminating.
 	 * @param label Label to associate to the edge.
@@ -182,6 +185,7 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 		if(label != null)
 			edgeLabel.put(new Pair<Integer, Integer>(v1, v2), label);
 		if(content != null)
+			content.setConnection(new Pair<Integer, Integer>(v1, v2));
 			edgeContent.put(new Pair<Integer, Integer>(v1, v2), content);
 		addEdgeImplementation(v1, v2);
 	}

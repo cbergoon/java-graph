@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.cbergoon.exceptions.InvalidVertexIndexException;
+import com.cbergoon.exception.InvalidVertexIndexException;
 import com.cbergoon.graph.model.EdgeBase;
 import com.cbergoon.graph.model.VertexBase;
 import com.cbergoon.utility.Pair;

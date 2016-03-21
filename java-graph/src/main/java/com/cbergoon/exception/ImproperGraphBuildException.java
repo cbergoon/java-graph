@@ -1,4 +1,4 @@
-package com.cbergoon.exceptions;
+package com.cbergoon.exception;
 
 /**
  * Exception to handle errors in structure of graph.
