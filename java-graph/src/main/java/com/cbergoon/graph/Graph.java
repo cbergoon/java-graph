@@ -16,6 +16,8 @@ import com.cbergoon.utility.Pair;
  * @author cbergoon
  * @param <V> Class that a vertex will represent
  * @param <E> Class that an edge will represent
+ * 
+ * TODO Enforce index of VertexBase is equal to the actual index represented by the node.
  */
 public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 
@@ -49,6 +51,10 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 	 */
 	private Map<Pair<Integer, Integer>, String> edgeLabel;
 	
+	/**
+	 * Root node of the graph.
+	 */
+	private V rootVertex;
 	
 	/**
 	 * Default constructor for the graph class.
@@ -335,6 +341,22 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 		}else{
 			return null;
 		}
+	}
+	
+	/**
+	 * Gets the root vertex. 
+	 * @return The root vertex of the graph. 
+	 */
+	public V getRootVertex(){
+		return rootVertex;
+	}
+	
+	/**
+	 * Sets the root vertex. 
+	 * @param root The root vertex of the graph. 
+	 */
+	public void setRootVertex(V root){
+		this.rootVertex = root;
 	}
 	
 	/**

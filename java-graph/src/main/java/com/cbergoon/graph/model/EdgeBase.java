@@ -6,6 +6,7 @@ import com.cbergoon.utility.Pair;
  * Edge decorator class to be linked to each edge by index. Intended 
  * to be extended. 
  * @author cbergoon
+ * TODO Override implementation of equals.
  */
 public class EdgeBase {
 	

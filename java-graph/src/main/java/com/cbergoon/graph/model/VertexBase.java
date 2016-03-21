@@ -1,11 +1,10 @@
 package com.cbergoon.graph.model;
 
-import com.cbergoon.utility.Pair;
-
 /**
  * Vertex decorator class to be linked to each vertex by index. Intended 
  * to be extended. 
  * @author cbergoon
+ * TODO Override implementation of equals.
  */
 public class VertexBase {
 

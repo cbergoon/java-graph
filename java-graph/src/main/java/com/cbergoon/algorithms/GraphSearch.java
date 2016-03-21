@@ -2,6 +2,7 @@ package com.cbergoon.algorithms;
 
 import java.util.ArrayList;
 
+import com.cbergoon.exceptions.ImproperGraphBuildException;
 import com.cbergoon.graph.Graph;
 import com.cbergoon.graph.model.EdgeBase;
 import com.cbergoon.graph.model.VertexBase;
@@ -44,6 +45,8 @@ public abstract class GraphSearch<V extends VertexBase, E extends EdgeBase> {
 	public GraphSearch(Graph<V, E> g){
 		visited = new ArrayList<V>();
 		this.graph = g;
+		start = null;
+		target = null;
 	}
 	
 	/**
@@ -54,6 +57,8 @@ public abstract class GraphSearch<V extends VertexBase, E extends EdgeBase> {
 	public GraphSearch(Graph<V, E> g, V target){
 		visited = new ArrayList<V>();
 		this.graph = g;
+		start = null;
+		target = null;
 	}
 	
 	/**
@@ -65,21 +70,25 @@ public abstract class GraphSearch<V extends VertexBase, E extends EdgeBase> {
 	public GraphSearch(Graph<V, E> g, V start, V target){
 		visited = new ArrayList<V>();
 		this.graph = g;
+		start = null;
+		target = null;
 	}
 	
 	/**
 	 * Wrapper of specific search implementation. 
 	 * @return VertexBase that represents the found vertex. Null if not found. 
+	 * @throws ImproperGraphBuildException 
 	 */
-	public V search(){
+	public V search() throws ImproperGraphBuildException{
 		return searchImplementation();
 	}
 
 	/**
 	 * Implementation specific version of the search.
 	 * @return VertexBase that represents the found vertex. Null if not found. 
+	 * @throws ImproperGraphBuildException 
 	 */
-	public abstract V searchImplementation();
+	public abstract V searchImplementation() throws ImproperGraphBuildException;
 
 	/**
 	 * Get the specified start vertex.
