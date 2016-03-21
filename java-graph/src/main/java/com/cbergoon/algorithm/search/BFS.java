@@ -1,4 +1,4 @@
-package com.cbergoon.algorithm;
+package com.cbergoon.algorithm.search;
 
 import java.util.HashSet;
 import java.util.LinkedList;

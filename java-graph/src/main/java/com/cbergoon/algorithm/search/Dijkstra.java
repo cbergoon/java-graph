@@ -1,20 +1,20 @@
-package com.cbergoon.algorithm;
+package com.cbergoon.algorithm.search;
 
 import com.cbergoon.graph.Graph;
 import com.cbergoon.graph.model.EdgeBase;
 import com.cbergoon.graph.model.VertexBase;
 
-public class DFS<V extends VertexBase, E extends EdgeBase> extends GraphSearch<V, E> {
+public class Dijkstra<V extends VertexBase, E extends EdgeBase> extends GraphSearch<V, E> {
 
-	public DFS(Graph<V, E> g) {
+	public Dijkstra(Graph<V, E> g) {
 		super(g);
 	}
 	
-	public DFS(Graph<V, E> g, V target){
+	public Dijkstra(Graph<V, E> g, V target){
 		super(g, target);
 	}
 	
-	public DFS(Graph<V, E> g, V start, V target){
+	public Dijkstra(Graph<V, E> g, V start, V target){
 		super(g, start, target);
 	}
 
@@ -22,5 +22,5 @@ public class DFS<V extends VertexBase, E extends EdgeBase> extends GraphSearch<V
 	public V searchImplementation() {
 		return null;
 	}
-	
+
 }
