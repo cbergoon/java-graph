@@ -16,8 +16,6 @@ import com.cbergoon.utility.Pair;
  * @author cbergoon
  * @param <V> Class that a vertex will represent
  * @param <E> Class that an edge will represent
- * 
- * TODO Enforce index of VertexBase is equal to the actual index represented by the node.
  */
 public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 
@@ -106,9 +104,10 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 	 * @return The index representing the new vertex.
 	 * @throws MaximumSizeReachedException
 	 */
-//	public int addVertex() throws MaximumSizeReachedException {
-//		return addVertexFunctionality(null, null);
-//	}
+	@Deprecated
+	public int addVertex() throws MaximumSizeReachedException {
+		return addVertexFunctionality(null, null);
+	}
 	
 	/**
 	 * Adds a vertex to the graph. Calls the implementation specific version
@@ -150,9 +149,10 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 	 * @param v2 Vertex from which the edge is terminating.
 	 * @throws InvalidVertexIndexException
 	 */
-//	public void addEdge(int v1, int v2) throws InvalidVertexIndexException {
-//		addEdgeFunctionality(v1, v2, null, null);
-//	}
+	@Deprecated
+	public void addEdge(int v1, int v2) throws InvalidVertexIndexException {
+		addEdgeFunctionality(v1, v2, null, null);
+	}
 	
 	/**
 	 * Adds an edge to the graph calls the implementation specific version

@@ -8,7 +8,9 @@ import com.cbergoon.graph.model.EdgeBase;
 import com.cbergoon.graph.model.VertexBase;
 
 /**
- * Base class for all searches on the graph class. 
+ * Base class for all searches on the graph class. Search classes all utilize the 
+ * content (decorators) for search. This means the properties of the content base 
+ * classes is used to link a node to the graph and define other characteristics. 
  * @author cbergoon
  */
 public abstract class GraphSearch<V extends VertexBase, E extends EdgeBase> {

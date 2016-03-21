@@ -8,7 +8,7 @@ import com.cbergoon.utility.Pair;
  * @author cbergoon
  * TODO Override implementation of equals.
  */
-public class EdgeBase {
+public abstract class EdgeBase {
 	
 	/**
 	 * Index of the decorator. 
@@ -51,5 +51,14 @@ public class EdgeBase {
 	public void setConnection(Pair<Integer, Integer> connection) {
 		this.connection = connection;
 	}
+	
+	/**
+	 * Checks for equality of an object as defined by the query.
+	 * Currently query function is not supported.  
+	 * @param v EdgeBase object to compare to. 
+	 * @param query Query that defines equality. 
+	 * @return true if objects are equal, false otherwise. 
+	 */
+	public abstract Boolean isEqualTo(EdgeBase v, String query);
 	
 }

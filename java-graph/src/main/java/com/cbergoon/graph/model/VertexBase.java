@@ -6,7 +6,7 @@ package com.cbergoon.graph.model;
  * @author cbergoon
  * TODO Override implementation of equals.
  */
-public class VertexBase {
+public abstract class VertexBase {
 
 	/**
 	 * Index of the decorator. 
@@ -28,5 +28,14 @@ public class VertexBase {
 	public void setIndex(int index) {
 		this.index = index;
 	}
+	
+	/**
+	 * Checks for equality of an object as defined by the query.
+	 * Currently query function is not supported.  
+	 * @param v VertexBase object to compare to. 
+	 * @param query Query that defines equality. 
+	 * @return true if objects are equal, false otherwise. 
+	 */
+	public abstract Boolean isEqualTo(VertexBase v, String query);
 	
 }
