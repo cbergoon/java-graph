@@ -1,4 +1,4 @@
-package com.cbergoon.graph.store;
+package com.cbergoon.graph.store.component;
 
 import com.cbergoon.graph.model.EdgeBase;
 

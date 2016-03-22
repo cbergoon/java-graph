@@ -9,6 +9,7 @@ import com.cbergoon.exception.InvalidVertexIndexException;
 import com.cbergoon.exception.MaximumSizeReachedException;
 import com.cbergoon.graph.model.EdgeBase;
 import com.cbergoon.graph.model.VertexBase;
+import com.cbergoon.graph.store.DBStore;
 import com.cbergoon.utility.Pair;
 
 /**
@@ -55,6 +56,11 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 	private V rootVertex;
 	
 	/**
+	 * DB Store for the graph. 
+	 */
+	private DBStore dbStore; 
+	
+	/**
 	 * Default constructor for the graph class.
 	 */
 	public Graph(){
@@ -64,6 +70,7 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 		vertexLabel = new HashMap<Integer, String>();
 		edgeContent = new HashMap<Pair<Integer, Integer>, E>();
 		edgeLabel = new HashMap<Pair<Integer, Integer>, String>();
+		//Initialize DB.
 	}
 	
 	/**
