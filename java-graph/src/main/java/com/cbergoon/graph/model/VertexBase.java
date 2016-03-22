@@ -12,6 +12,11 @@ public abstract class VertexBase {
 	 * Index of the decorator. 
 	 */
 	private int index;
+	
+	/**
+	 * Vertex viability (cache status)
+	 */
+	private Boolean viable;
 
 	/**
 	 * Gets the index of the decorator. 
@@ -27,6 +32,22 @@ public abstract class VertexBase {
 	 */
 	public void setIndex(int index) {
 		this.index = index;
+	}
+	
+	/**
+	 * Gets the value of viable. 
+	 * @return The current value of viable. 
+	 */
+	public Boolean isViable(){
+		return viable;
+	}
+	
+	/**
+	 * Sets the value of viable.
+	 * @param viable Value to set viable.
+	 */
+	public void setViable(Boolean viable){
+		this.viable = viable;
 	}
 	
 	/**

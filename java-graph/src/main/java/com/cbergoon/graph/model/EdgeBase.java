@@ -21,6 +21,11 @@ public abstract class EdgeBase {
 	private Pair<Integer, Integer> connection;
 	
 	/**
+	 * Edge viability (cache status)
+	 */
+	private Boolean viable;
+	
+	/**
 	 * Gets the index of the decorator. 
 	 * @return The index of the decorator.
 	 */
@@ -50,6 +55,22 @@ public abstract class EdgeBase {
 	 */
 	public void setConnection(Pair<Integer, Integer> connection) {
 		this.connection = connection;
+	}
+	
+	/**
+	 * Gets the value of viable. 
+	 * @return The current value of viable. 
+	 */
+	public Boolean isViable(){
+		return viable;
+	}
+	
+	/**
+	 * Sets the value of viable.
+	 * @param viable Value to set viable.
+	 */
+	public void setViable(Boolean viable){
+		this.viable = viable;
 	}
 	
 	/**
