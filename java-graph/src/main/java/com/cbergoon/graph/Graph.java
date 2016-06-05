@@ -1,7 +1,6 @@
 package com.cbergoon.graph;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -9,7 +8,6 @@ import com.cbergoon.exception.InvalidVertexIndexException;
 import com.cbergoon.exception.MaximumSizeReachedException;
 import com.cbergoon.graph.model.EdgeBase;
 import com.cbergoon.graph.model.VertexBase;
-import com.cbergoon.graph.store.DBStore;
 import com.cbergoon.utility.Pair;
 
 /**
@@ -236,7 +234,7 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 	 * @return The list of integers that represent the neighbors.
 	 * @throws InvalidVertexIndexException 
 	 */
-	public abstract HashSet<Integer> getNeighbors(int v) throws InvalidVertexIndexException;
+	public abstract Set<Integer> getNeighbors(int v) throws InvalidVertexIndexException;
 	
 	/**
 	 * Gets a list of in-neighbors (adjacent vertices) to the specified vertex.
@@ -246,7 +244,7 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 	 * @return The list of integers that represent the neighbors. 
 	 * @throws InvalidVertexIndexException 
 	 */
-	public abstract HashSet<Integer> getInNeighbors(int v) throws InvalidVertexIndexException;
+	public abstract Set<Integer> getInNeighbors(int v) throws InvalidVertexIndexException;
 	
 	/**
 	 * Gets a list of vertices that are a distance of two edges from the specified 
@@ -255,7 +253,7 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 	 * @return The list of vertices that are 2 degrees from the specified vertex.
 	 * @throws InvalidVertexIndexException 
 	 */
-	public abstract HashSet<Integer> getSecondDegree(int v) throws InvalidVertexIndexException;
+	public abstract Set<Integer> getSecondDegree(int v) throws InvalidVertexIndexException;
 	
 	/**
 	 * Generates a string that represents the adjacency list of the graph. 

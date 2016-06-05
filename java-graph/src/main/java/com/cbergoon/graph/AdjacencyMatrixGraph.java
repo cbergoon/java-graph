@@ -74,7 +74,7 @@ public class AdjacencyMatrixGraph<V extends VertexBase, E extends EdgeBase> exte
 	 */
 	@Override
 	public Set<Integer> getVerticesImplementation() {
-		HashSet<Integer> vertices = new HashSet<Integer>();
+		Set<Integer> vertices = new HashSet<Integer>();
 		for(int i = 0; i < adjMatrix.length; i++){
 			vertices.add(i);
 		}
@@ -101,37 +101,73 @@ public class AdjacencyMatrixGraph<V extends VertexBase, E extends EdgeBase> exte
 	
 	@Override
 	public void addVertexImplementation() {
-		
+		if(getNumVertices() + 1 >= adjMatrix.length){
+			increaseAdjMatrixSize(adjMatrix.length + 1);
+		}
 	}
 
 	@Override
 	public void addEdgeImplementation(int v1, int v2) throws InvalidVertexIndexException {
-		// TODO Auto-generated method stub
-
+		if(v1 >= adjMatrix.length || v1 < 0 || v2 >= adjMatrix.length || v2 < 0){
+			throw new InvalidVertexIndexException("Vertex index must exist in the graph");
+		}
+		adjMatrix[v1][v2] = CONNECTED_EDGE;
 	}
 
 	@Override
-	public HashSet<Integer> getNeighbors(int v) throws InvalidVertexIndexException {
-		// TODO Auto-generated method stub
-		return null;
+	public Set<Integer> getNeighbors(int v) throws InvalidVertexIndexException {
+		if(v >= adjMatrix.length || v < 0){
+			throw new InvalidVertexIndexException("Vertex index must exist in the graph");
+		}
+		Set<Integer> neighbors = new HashSet<Integer>();
+		for(int i = 0; i < adjMatrix[v].length; i++){
+			if(adjMatrix[v][i] == CONNECTED_EDGE){
+				neighbors.add(i);
+			}
+		}
+		return neighbors;
 	}
 
 	@Override
-	public HashSet<Integer> getInNeighbors(int v) throws InvalidVertexIndexException {
-		// TODO Auto-generated method stub
-		return null;
+	public Set<Integer> getInNeighbors(int v) throws InvalidVertexIndexException {
+		if(v >= adjMatrix.length || v < 0){
+			throw new InvalidVertexIndexException("Vertex index must exist in the graph");
+		}
+		Set<Integer> neighbors = new HashSet<Integer>();
+		for(int i = 0; i < adjMatrix.length; i++){
+			if(adjMatrix[i][v] == CONNECTED_EDGE){
+				neighbors.add(i);
+			}
+		}
+		return neighbors;
 	}
 
 	@Override
-	public HashSet<Integer> getSecondDegree(int v) throws InvalidVertexIndexException {
-		// TODO Auto-generated method stub
-		return null;
+	public Set<Integer> getSecondDegree(int v) throws InvalidVertexIndexException {
+		if(v >= adjMatrix.length || v < 0){
+			throw new InvalidVertexIndexException("Vertex index must exist in the graph");
+		}
+		Set<Integer> neighbors = getNeighbors(v);
+		Set<Integer> secondNeighbors = new HashSet<Integer>();
+		for(Integer n : neighbors){
+			secondNeighbors.addAll(getNeighbors(n));
+		}
+		return secondNeighbors;
 	}
 
 	@Override
 	public String toAdjacencyString() {
-		// TODO Auto-generated method stub
-		return null;
+		String matStr = "";
+		for(int i = 0; i < adjMatrix.length; i++){
+			matStr += "(" + i + ") -> [";
+			for(int j = 0; j < adjMatrix[i].length; j++){
+				if(adjMatrix[i][j] == CONNECTED_EDGE){
+					matStr += j + ", ";
+				}
+			}
+			matStr += "]\n";
+		}
+		return matStr;
 	}
 
 }

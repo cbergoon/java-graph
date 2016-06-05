@@ -2,6 +2,7 @@ package com.cbergoon.graph;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import com.cbergoon.exception.InvalidVertexIndexException;
@@ -19,7 +20,7 @@ public class AdjacencyListGraph<V extends VertexBase, E extends EdgeBase> extend
 	/**
 	 * Graph adjacency list representation.
 	 */
-	private HashMap<Integer, HashSet<Integer>> adjList;
+	private Map<Integer, HashSet<Integer>> adjList;
 	
 	/**
 	 * Constructor for graph class.
@@ -42,7 +43,7 @@ public class AdjacencyListGraph<V extends VertexBase, E extends EdgeBase> extend
 	 * @return Set of all edges in the graph. 
 	 */
 	public Set<Pair<Integer, Integer>> getEdgesImplementation(){
-		HashSet<Pair<Integer, Integer>> edges = new HashSet<Pair<Integer, Integer>>(); 
+		Set<Pair<Integer, Integer>> edges = new HashSet<Pair<Integer, Integer>>(); 
 		for(Integer i : getVertices())
 			for(Integer j : adjList.get(i))
 				edges.add(new Pair<Integer, Integer>(i, j));
@@ -77,7 +78,7 @@ public class AdjacencyListGraph<V extends VertexBase, E extends EdgeBase> extend
 	 * @throws InvalidVertexIndexException
 	 */
 	@Override
-	public HashSet<Integer> getNeighbors(int v) throws InvalidVertexIndexException {
+	public Set<Integer> getNeighbors(int v) throws InvalidVertexIndexException {
 		if(!adjList.containsKey(v))
 			throw new InvalidVertexIndexException("No vertex found for index.");
 		return adjList.get(v);
@@ -91,10 +92,10 @@ public class AdjacencyListGraph<V extends VertexBase, E extends EdgeBase> extend
 	 * @throws InvalidVertexIndexException
 	 */
 	@Override
-	public HashSet<Integer> getInNeighbors(int v) throws InvalidVertexIndexException {
+	public Set<Integer> getInNeighbors(int v) throws InvalidVertexIndexException {
 		if(!adjList.containsKey(v))
 			throw new InvalidVertexIndexException("No vertex found for index");
-		HashSet<Integer> ins = new HashSet<Integer>();
+		Set<Integer> ins = new HashSet<Integer>();
 		for(Integer i : adjList.keySet())
 			for(Integer j : adjList.get(i))
 				if(j.equals(v))
@@ -110,11 +111,11 @@ public class AdjacencyListGraph<V extends VertexBase, E extends EdgeBase> extend
 	 * @throws InvalidVertexIndexException
 	 */
 	@Override
-	public HashSet<Integer> getSecondDegree(int v) throws InvalidVertexIndexException {
+	public Set<Integer> getSecondDegree(int v) throws InvalidVertexIndexException {
 		if(!adjList.containsKey(v))
 			throw new InvalidVertexIndexException("No vertex found for index");
-		HashSet<Integer> secdeg = new HashSet<Integer>();
-		HashSet<Integer> firstdeg = getNeighbors(v);
+		Set<Integer> secdeg = new HashSet<Integer>();
+		Set<Integer> firstdeg = getNeighbors(v);
 		for(Integer i : firstdeg)
 			secdeg.addAll(getNeighbors(i));
 		return secdeg;

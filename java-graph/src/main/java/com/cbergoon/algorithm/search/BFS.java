@@ -1,8 +1,8 @@
 package com.cbergoon.algorithm.search;
 
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
 
 import com.cbergoon.exception.ImproperGraphBuildException;
 import com.cbergoon.exception.InvalidVertexIndexException;
@@ -91,7 +91,7 @@ public class BFS<V extends VertexBase, E extends EdgeBase> extends GraphSearch<V
 					return target;
 				}
 				try {
-					HashSet<Integer> neighbors = graph.getNeighbors(toVisitQueue.poll().getIndex());
+					Set<Integer> neighbors = graph.getNeighbors(toVisitQueue.poll().getIndex());
 					for(Integer i : neighbors){
 						toVisitQueue.add(graph.getVertexContent(i));
 					}
