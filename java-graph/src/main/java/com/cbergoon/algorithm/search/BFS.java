@@ -11,7 +11,7 @@ import com.cbergoon.graph.model.EdgeBase;
 import com.cbergoon.graph.model.VertexBase;
 
 /**
- * Breadth first search iimplementation for the graph. Search provides
+ * Breadth first search implementation for the graph. Search provides
  * an extended functionality set to allow for no target and start-less
  * (no entry point) searches. 
  * @author cbergoon

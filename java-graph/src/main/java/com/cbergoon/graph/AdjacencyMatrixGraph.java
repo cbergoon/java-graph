@@ -16,6 +16,9 @@ import com.cbergoon.utility.Pair;
  */
 public class AdjacencyMatrixGraph<V extends VertexBase, E extends EdgeBase> extends Graph<V, E> {
 	
+	public final int CONNECTED_EDGE = 1;
+	public final int NOT_CONNECTED_EDGE = 0;
+	
 	/**
 	 * Adjacency matrix data structure.
 	 */
@@ -62,25 +65,43 @@ public class AdjacencyMatrixGraph<V extends VertexBase, E extends EdgeBase> exte
 		adjMatrix = newAdjMatrix;
 	}
 	
+	/**
+	 * Gets a set containing all vertices in the graph. 
+	 * Note: Set may contain vertices that have been removed and/or
+	 * created due to to resizing the matrix. 
+	 * TODO: Add condition to vertex to mark valid/active edges. 
+	 * @return Set<Integer> Set containing all vertices in the matrix. 
+	 */
 	@Override
 	public Set<Integer> getVerticesImplementation() {
 		HashSet<Integer> vertices = new HashSet<Integer>();
 		for(int i = 0; i < adjMatrix.length; i++){
-			
+			vertices.add(i);
 		}
 		return vertices;
 	}
 
+	/**
+	 * Gets a set containing all vertices in the graph. 
+	 * @return Set<Pair<Integer, Integer>> Set of Pairs representing all
+	 * edges in the graph.  
+	 */
 	@Override
 	public Set<Pair<Integer, Integer>> getEdgesImplementation() {
-		// TODO Auto-generated method stub
-		return null;
+		Set<Pair<Integer, Integer>> edges = new HashSet<Pair<Integer, Integer>>();
+		for(int i = 0; i < adjMatrix.length; i++){
+			for(int j = 0; j < adjMatrix[0].length; i++){
+				if(adjMatrix[i][j] == CONNECTED_EDGE){
+					edges.add(new Pair<Integer, Integer>(i, j));
+				}
+			}
+		}
+		return edges;
 	}
 	
 	@Override
 	public void addVertexImplementation() {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override

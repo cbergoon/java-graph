@@ -56,9 +56,11 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 	private V rootVertex;
 	
 	/**
-	 * DB Store for the graph. 
+	 * DB Store for the graph.
+	 * 
+	 * TODO: Implement DB Store
 	 */
-	private DBStore dbStore; 
+	//private DBStore dbStore; 
 	
 	/**
 	 * Default constructor for the graph class.
@@ -136,7 +138,7 @@ public abstract class Graph<V extends VertexBase, E extends EdgeBase> {
 	 * @return The index representing the new vertex.
 	 * @throws MaximumSizeReachedException
 	 */
-	private int addVertexFunctionality(String label, V content) throws MaximumSizeReachedException{
+	private int addVertexFunctionality(String label, V content) throws MaximumSizeReachedException {
 		if(numVertices >= Integer.MAX_VALUE)
 			throw new MaximumSizeReachedException("Maximum number of vertices reached. Number of vertices cannot exceed the maximum size");
 		addVertexImplementation();
