@@ -1,2 +1,2 @@
 ## java-graph
-Simple reusable graph implementation.
+Work in progress simple reusable graph implementation fucused on usability. 
